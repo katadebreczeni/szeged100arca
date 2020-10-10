@@ -34,16 +34,12 @@ header {
 
   .parallax-inner {
     position: absolute;
-    top: -30px;
-    left: -50vw;
-    width: 100%;
-    margin-left: 50vw;
+    top: 0;
+    left: 0;
     filter: blur(4px);
     -webkit-filter: blur(4px);
-
-    img {
-      min-width: 100%;
-    }
+    width: 100vw;
+    height: 100vh;
   }
 }
 

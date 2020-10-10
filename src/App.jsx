@@ -7,7 +7,7 @@ import './App.scss'
 const App = () => (
   <div>
     <Parallax className="custom-class" y={[-20, 20]} tagOuter="figure">
-        <img src={HeaderImage} alt='Szeged 1000 arca' />
+      <header />
     </Parallax>
     <h1>
       <a href="#top">
@@ -15,7 +15,7 @@ const App = () => (
       </a>
       </h1>
     <div id="top" className="sticky-nav">
-    Szeged 1000 arca
+      Szeged 1000 arca
     </div>
     <main>
     <Feed userName="szeged1000arca" className="Feed" classNameLoading="Loading"/>
