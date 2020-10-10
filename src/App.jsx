@@ -1,11 +1,14 @@
 import React from 'react'
+import { Parallax } from 'react-scroll-parallax';
 import Feed from "react-instagram-authless-feed"
+import HeaderImage from './assets/img/header_img.jpg'
 import './App.scss'
 
 const App = () => (
   <div>
-    <header>
-    </header>
+    <Parallax className="custom-class" y={[-20, 20]} tagOuter="figure">
+        <img src={HeaderImage} alt='Szeged 1000 arca' />
+    </Parallax>
     <h1>
       <a href="#top">
         Szeged 1000 arca
