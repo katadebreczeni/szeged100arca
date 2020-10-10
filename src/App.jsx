@@ -5,8 +5,15 @@ import './App.scss'
 const App = () => (
   <div>
     <header>
-      Szeged 1000 arca
     </header>
+    <h1>
+      <a href="#top">
+        Szeged 1000 arca
+      </a>
+      </h1>
+    <div id="top" className="sticky-nav">
+    Szeged 1000 arca
+    </div>
     <main>
     <Feed userName="szeged1000arca" className="Feed" classNameLoading="Loading"/>
   </main>
