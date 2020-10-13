@@ -5,7 +5,7 @@ body, html {
   font-family: 'Raleway', sans-serif;
 }
 
-div, header, footer, main, article, aside, section, nav, a {
+div, header, footer, main, article, aside, section, nav, a, ul, li {
   box-sizing: border-box;
 }
 
@@ -124,49 +124,6 @@ h1 {
       img {
         height: 1.5rem;
       }
-    }
-  }
-}
-
-.Feed {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 100%;
-  justify-self: center;
-  align-self: center;
-  transition: .3s all ease;
-  padding: 0 .75rem .75rem;
-
-  a {
-    width: 25%;
-    display: flex;
-    padding: .75rem;
-
-    img {
-      transition: .3s all ease;
-      width: 100%;
-      height: auto;
-      -webkit-filter: grayscale(100%);
-      filter: grayscale(100%);
-    }
-
-    &:hover img {
-      transition: .3s all ease;
-      -webkit-filter: none;
-      filter: none;
-    }
-  }
-
-  @media screen and (max-width: 767px) {
-    a {
-      width: 33.3333%;
-    }
-  }
-
-  @media screen and (max-width: 500px) {
-    a {
-      width: 50%;
     }
   }
 }

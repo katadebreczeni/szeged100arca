@@ -3,7 +3,7 @@ import { Parallax } from 'react-scroll-parallax'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faInstagram, faFacebookSquare } from '@fortawesome/free-brands-svg-icons'
 import AZsHome from './assets/img/azs_home.png'
-import Feed from 'react-instagram-authless-feed'
+import Gallery from './components/Gallery'
 import './App.scss'
 
 const App = () => (
@@ -23,19 +23,19 @@ const App = () => (
         </h2>
       </div>
       <div className="social-actions">
-        <a href="https://www.instagram.com/szeged1000arca/" target="_blank">
+        <a href="https://www.instagram.com/szeged1000arca/" rel="noopener noreferrer" target="_blank">
           <FontAwesomeIcon icon={faInstagram} />
         </a>
-        <a href="https://www.facebook.com/szeged1000arca" target="_blank">
+        <a href="https://www.facebook.com/szeged1000arca" rel="noopener noreferrer" target="_blank">
           <FontAwesomeIcon icon={faFacebookSquare} />
         </a>
-        <a className="azs-link" href="http://www.andraszsolt.com/" target="_blank">
+        <a className="azs-link" href="http://www.andraszsolt.com/" rel="noopener noreferrer" target="_blank">
           <img src={AZsHome} alt="András Zsolt photography"/>
         </a>
       </div>
     </div>
     <main>
-    <Feed userName="szeged1000arca" className="Feed" classNameLoading="Loading"/>
+    <Gallery />
   </main>
   </div>
 )
