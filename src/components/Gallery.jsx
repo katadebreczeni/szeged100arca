@@ -21,6 +21,8 @@ import img19 from '../assets/gallery/_MG_0064-2.jpg'
 import img20 from '../assets/gallery/_MG_0065-2.jpg'
 import img21 from '../assets/gallery/_MG_0066-2.jpg'
 import './Gallery.scss'
+import GalleryItem from './GalleryItem'
+import LightBox from './LightBox'
 
 const Gallery = () => {
     const images = [
@@ -69,26 +71,11 @@ const Gallery = () => {
         { src: img2, title: '', srcLarge: ''},
         { src: img3, title: '', srcLarge: ''},
     ]
-    const [selectedImage, setSelectedImage] = useState(null);
-
-    const Item = ({ src, alt, index }) => (
-        <li onClick={() => selectImageHandler(index) }>
-            <img src={src} alt={alt} />
-        </li>
-    )
-
-    const LightBox = () => {
-        return (
-            <div className="overlay" onClick={closeLightBoxHandler}>
-                <div className="lightbox-image">
-                    <img src={selectedImage.src} alt={selectedImage.title} />
-                    <div>{selectedImage.title}</div>
-                </div>
-            </div>
-        )
-    }
+    const [selectedImage, setSelectedImage] = useState(null)
+    const [selectedImageIndex, setSelectedImageIndex] = useState(null)
 
     const selectImageHandler = (index) => {
+        setSelectedImageIndex(index)
         setSelectedImage(images[index])
     }
 
@@ -96,12 +83,26 @@ const Gallery = () => {
         setSelectedImage(null)
     }
 
+    const nextImageHandler = () => {
+        setSelectedImageIndex((prevState) => {
+            return images.length > prevState ? prevState + 1 : prevState
+        })
+        setSelectedImage(images[selectedImageIndex])
+    }
+
+    const prevImageHandler = () => {
+        setSelectedImageIndex((prevState) => {
+            return 0 < prevState ? prevState - 1 : prevState
+        })
+        setSelectedImage(images[selectedImageIndex])
+    }
+
     return (
         <>
-           { selectedImage ? <LightBox /> : '' }
+           { selectedImage ? <LightBox selectedImage={selectedImage} closeLightBoxHandler={closeLightBoxHandler} nextImageHandler={nextImageHandler} prevImageHandler={prevImageHandler} /> : '' }
             <ul className="gallery">
                 {images.map(({ src, title }, index) => (
-                    <Item key={`${index}_${src}`} src={src} alt={title} index={index} />
+                    <GalleryItem key={`${index}_${src}`} src={src} alt={title} index={index} selectImageHandler={selectImageHandler} />
                 ))}
             </ul>
         </>
